@@ -1,0 +1,311 @@
+{
+  "version": 2,
+  "exportTime": "2026-07-10T06:44:46.244Z",
+  "apiConfigs": [
+    {
+      "name": "doubao",
+      "accessToken": "2G4hV7BFy-mQ1bi9ap1Fc3U1G5zWONAy",
+      "appId": "9260229188",
+      "speakers": [
+        {
+          "name": "甜美活泼",
+          "speakerId": "ICL_uranus_zh_female_tianmeihuopo_tob",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "知性女声",
+          "speakerId": "zh_female_zhixingnv_uranus_bigtts",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "悠悠君子",
+          "speakerId": "zh_male_youyoujunzi_uranus_bigtts",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "儒雅青年",
+          "speakerId": "zh_male_ruyaqingnian_uranus_bigtts",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "温柔小哥",
+          "speakerId": "zh_male_wenrouxiaoge_uranus_bigtts",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "开朗学长",
+          "speakerId": "zh_male_kailangxuezhang_uranus_bigtts",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "唐僧",
+          "speakerId": "zh_male_tangseng_uranus_bigtts",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "霸气青叔",
+          "speakerId": "zh_male_baqiqingshu_uranus_bigtts",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "儒雅逸辰",
+          "speakerId": "zh_male_ruyayichen_uranus_bigtts",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "高冷沉稳",
+          "speakerId": "zh_male_gaolengchenwen_uranus_bigtts",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "天才同桌",
+          "speakerId": "ICL_uranus_zh_male_tiancaitongzhuo_tob",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "直率青年",
+          "speakerId": "ICL_uranus_zh_male_zhishuaiqingnian_tob",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "仗剑君子",
+          "speakerId": "ICL_uranus_zh_male_zhangjianjunzi_tob",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "优柔帮主",
+          "speakerId": "ICL_uranus_zh_male_youroubangzhu_tob",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "小侯爷",
+          "speakerId": "ICL_uranus_zh_male_xiaohouye_tob",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "擎苍",
+          "speakerId": "zh_male_qingcang_uranus_bigtts",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "小何",
+          "speakerId": "zh_female_xiaohe_uranus_bigtts",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "少儿故事",
+          "speakerId": "zh_female_shaoergushi_uranus_bigtts",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "温柔小雅",
+          "speakerId": "zh_female_wenrouxiaoya_uranus_bigtts",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "柔美女友",
+          "speakerId": "zh_female_roumeinvyou_uranus_bigtts",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "女雷神",
+          "speakerId": "zh_female_nvleishen_uranus_bigtts",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "玲玲姐姐",
+          "speakerId": "zh_female_lingling_uranus_bigtts",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "甜美桃子",
+          "speakerId": "zh_female_tianmeitaozi_uranus_bigtts",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "柔骨魂师",
+          "speakerId": "ICL_uranus_zh_female_rouguhunshi_tob",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "暖心学姐",
+          "speakerId": "ICL_uranus_zh_female_nuanxinxuejie_tob",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "性感魅惑",
+          "speakerId": "ICL_uranus_zh_female_xingganmeihuo_tob",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "幽默大爷",
+          "speakerId": "ICL_uranus_zh_male_youmodaye_tob",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "胡子叔叔",
+          "speakerId": "ICL_uranus_zh_male_huzishushu_tob",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "婆婆",
+          "speakerId": "zh_female_popo_uranus_bigtts",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "和蔼奶奶",
+          "speakerId": "ICL_uranus_zh_female_heainainai_tob",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "樱桃丸子",
+          "speakerId": "zh_female_yingtaowanzi_uranus_bigtts",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "懒音绵宝",
+          "speakerId": "zh_male_lanyinmianbao_uranus_bigtts",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        },
+        {
+          "name": "佩奇猪",
+          "speakerId": "zh_female_peiqi_uranus_bigtts",
+          "resourceId": "seed-tts-2.0",
+          "note": "",
+          "trainHistory": [],
+          "lastStatus": null,
+          "lastStatusText": null
+        }
+      ]
+    }
+  ],
+  "currentApiIndex": 0
+}
