@@ -1,0 +1,285 @@
+.sta-panel { font-size: 0.9em; }
+
+.sta-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--SmartThemeBorderColor, #444);
+    padding-bottom: 6px;
+}
+
+.sta-tab-btn {
+    background: transparent;
+    border: 1px solid var(--SmartThemeBorderColor, #444);
+    border-radius: 6px;
+    padding: 4px 10px;
+    cursor: pointer;
+    color: var(--SmartThemeBodyColor, #ddd);
+    white-space: nowrap;
+}
+
+.sta-tab-btn.active {
+    background: var(--SmartThemeQuoteColor, #4a90d9);
+    color: #fff;
+}
+
+.sta-tab-content { display: none; }
+.sta-tab-content.active { display: block; }
+
+.sta-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 6px 0;
+    flex-wrap: wrap;
+}
+.sta-field label { flex: 0 0 auto; min-width: 140px; }
+.sta-field input[type="range"] { flex: 1; min-width: 80px; }
+
+.sta-hint {
+    opacity: 0.7;
+    font-size: 0.9em;
+    margin: 4px 0 10px;
+}
+
+/* 勾选框紧贴文字左对齐（不要拉伸到整行两端对齐，否则用户看不到勾选框） */
+.sta-check-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 6px 0;
+    cursor: pointer;
+}
+.sta-check-row input[type="checkbox"] { flex: 0 0 auto; margin: 0; }
+
+.sta-check-row-main span { font-weight: 700; font-size: 1.15em; }
+
+.sta-check-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+}
+
+.sta-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border: 1px solid var(--SmartThemeBorderColor, #444);
+    border-radius: 6px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+}
+.sta-row-name { font-weight: bold; min-width: 90px; }
+.sta-runlog-error { color: #d9534f; }
+.sta-row-sub { opacity: 0.7; font-size: 0.85em; flex: 1; }
+.sta-row select,
+.sta-row input[type="text"] { flex: 1; min-width: 110px; }
+.sta-row-check { flex: 0 0 auto; }
+
+.sta-add-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 8px;
+}
+.sta-add-row input, .sta-add-row select { flex: 1; min-width: 120px; }
+
+/* 底部靠右横排的操作按钮行（保存类按钮统一样式） */
+.sta-actions-right {
+    display: flex;
+    justify-content: flex-end;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+
+/* “音色列表”标题与操作按钮同一行；窄屏（如手机）自动换行 */
+.sta-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 10px 0 6px;
+}
+.sta-list-header h4 {
+    margin: 0;
+    font-size: 1.15em;
+    font-weight: 700;
+}
+.sta-list-header .sta-actions-right {
+    margin: 0;
+}
+
+/* 按钮/select 内文字禁止逐字换行，避免窄面板下被挤成竖排 */
+.menu_button,
+.sta-tab-btn,
+select {
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.menu_button.danger {
+    border-color: #d9534f;
+    color: #d9534f;
+}
+
+/* 滑条旁的实时数值展示 */
+.sta-range-val {
+    flex: 0 0 auto;
+    min-width: 34px;
+    text-align: right;
+    opacity: 0.85;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   悬浮窗：显示生成/播放进度，仅一个"跳过"按钮
+   ═══════════════════════════════════════════════════════════ */
+.sta-float-panel {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 9999;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: var(--SmartThemeBlurTintColor, #222);
+    border: 1px solid var(--SmartThemeBorderColor, #444);
+    border-radius: 8px;
+    padding: 8px 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+    color: var(--SmartThemeBodyColor, #ddd);
+    font-size: 0.85em;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+/* 空闲态（插件不运行/无任务）：常驻但半透明，仅露出一个"停止音乐"按钮，
+   方便随时点掉可能还在循环的BGM；鼠标悬停/触摸时恢复不透明便于点击。 */
+.sta-float-panel.sta-float-idle {
+    opacity: 0.35;
+}
+.sta-float-panel.sta-float-idle:hover,
+.sta-float-panel.sta-float-idle:focus-within {
+    opacity: 0.95;
+}
+.sta-float-panel.sta-float-idle .sta-float-status,
+.sta-float-panel.sta-float-idle .sta-float-progress {
+    display: none;
+}
+
+.sta-float-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: grab;
+    user-select: none;
+}
+.sta-float-title { font-weight: bold; }
+.sta-float-drag { opacity: 0.6; }
+
+.sta-float-status {
+    opacity: 0.85;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.sta-float-status-error { color: #d9534f; }
+
+.sta-float-progress {
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+}
+.sta-float-progress-bar {
+    height: 100%;
+    width: 0;
+    background: var(--SmartThemeQuoteColor, #4a90d9);
+    transition: width 0.2s ease;
+}
+
+.sta-float-skip {
+    width: 100%;
+    padding: 3px 0;
+    font-size: 0.95em;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   移动端（触屏或窄屏，例如 Termux 里的酒馆）：矩形面板收缩成
+   一个不带文字的圆形按钮，外观代替文字说明状态：
+     - 半透明 = 空闲（点击 = 停止音乐）
+     - 外圈进度环 = 生成/合成/播放中（点击 = 跳过）
+     - 红色内圈 = 出错
+   --sta-pct 由 JS 在 render() 里设置（0-100），用于画进度环。
+   ═══════════════════════════════════════════════════════════ */
+@media (pointer: coarse), (max-width: 768px) {
+    .sta-float-panel {
+        width: 52px;
+        height: 52px;
+        right: 16px;
+        left: auto;
+        bottom: auto;
+        top: 16px; /* 移动端默认停靠右上角 */
+        padding: 0;
+        border-radius: 50%;
+        border: none;
+        touch-action: none; /* 避免拖拽手势被系统当作页面滚动 */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+        background-image: conic-gradient(
+            var(--SmartThemeQuoteColor, #4a90d9) calc(var(--sta-pct, 0) * 1%),
+            transparent 0
+        );
+    }
+
+    .sta-float-panel::before {
+        content: "🎵";
+        position: absolute;
+        inset: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        line-height: 1;
+        border-radius: 50%;
+        background: var(--SmartThemeBlurTintColor, #222);
+    }
+
+    .sta-float-panel.sta-float-error::before {
+        box-shadow: inset 0 0 0 2px #d9534f;
+    }
+
+    /* 空闲态不画进度环，整体半透明；悬停/触摸时恢复可见方便点击 */
+    .sta-float-panel.sta-float-idle {
+        opacity: 0.4;
+        background-image: none;
+    }
+    .sta-float-panel.sta-float-idle:hover,
+    .sta-float-panel.sta-float-idle:focus-within {
+        opacity: 0.95;
+    }
+
+    /* 原矩形布局里的文字/进度条/按钮在移动端一律隐藏，只留圆形本体 */
+    .sta-float-header,
+    .sta-float-status,
+    .sta-float-progress,
+    .sta-float-skip {
+        display: none;
+    }
+}
+
+/* Prompt模板切换区：下拉框与重命名输入框占同一位置 */
+.sta-prompt-template-switch {
+    flex: 1;
+    min-width: 160px;
+    display: inline-flex;
+}
+.sta-prompt-template-switch select,
+.sta-prompt-template-switch input[type="text"] {
+    width: 100%;
+}

@@ -1,0 +1,12 @@
+{
+    "display_name": "酒馆音效精灵 (Tavern Audio Lite)",
+    "loading_order": 9,
+    "requires": [],
+    "optional": [],
+    "js": "index.js",
+    "css": "style.css",
+    "author": "Claude (基于用户提供的 st-immersive-sound 精简重构)",
+    "version": "1.0.0",
+    "homePage": "https://github.com/anyunji666/st-tavern-audio",
+    "update_notes": "v1.0.0 精简重构版：仅保留豆包(火山引擎)/MiMo 双TTS供应商、规则+LLM解析、角色音色绑定与NPC兜底音色持久化、本地IndexedDB缓存(含cacheKey去重)、基础顺序播放。"
+}

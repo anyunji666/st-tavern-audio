@@ -1,0 +1,199 @@
+<div id="sta-root" class="sta-panel">
+  <div class="inline-drawer">
+    <div class="inline-drawer-toggle inline-drawer-header">
+      <b>🔊 酒馆音效精灵</b>
+      <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+    </div>
+    <div class="inline-drawer-content">
+
+      <div class="sta-tabs">
+        <button class="sta-tab-btn active" data-tab="general">主设置</button>
+        <button class="sta-tab-btn" data-tab="doubao">豆包TTS</button>
+        <button class="sta-tab-btn" data-tab="mimo">MiMo TTS</button>
+        <button class="sta-tab-btn" data-tab="edge">Edge-TTS</button>
+        <button class="sta-tab-btn" data-tab="voices">角色音色</button>
+        <button class="sta-tab-btn" data-tab="npc">NPC音色</button>
+        <button class="sta-tab-btn" data-tab="assets">素材库</button>
+        <button class="sta-tab-btn" data-tab="cache">缓存管理</button>
+        <button class="sta-tab-btn" data-tab="runlog">运行日志</button>
+      </div>
+
+      <!-- 主设置（含 LLM 解析） -->
+      <div class="sta-tab-content active" data-tab="general">
+        <label class="sta-check-row sta-check-row-main"><span>启用插件</span><input type="checkbox" id="sta_enabled" /></label>
+        <h4>音量</h4>
+        <div class="sta-field"><label>总音量</label><input type="range" id="sta_vol_master" min="0" max="1" step="0.01" /></div>
+        <div class="sta-field"><label>BGM</label><input type="range" id="sta_vol_music" min="0" max="1" step="0.01" /></div>
+        <div class="sta-field"><label>环境音</label><input type="range" id="sta_vol_ambiance" min="0" max="1" step="0.01" /></div>
+        <div class="sta-field"><label>音效</label><input type="range" id="sta_vol_sfx" min="0" max="1" step="0.01" /></div>
+        <div class="sta-field"><label>语音</label><input type="range" id="sta_vol_voice" min="0" max="1" step="0.01" /></div>
+
+        <h4>LLM 解析</h4>
+        <div class="sta-field"><label>API Base URL</label><input type="text" id="sta_llm_api_url" class="text_pole" /></div>
+        <div class="sta-field"><label>API Key</label><input type="text" id="sta_llm_api_key" class="text_pole" /></div>
+        <div class="sta-field">
+          <label>模型</label>
+          <input type="text" id="sta_llm_model" class="text_pole" list="sta_llm_model_datalist" placeholder="可手动填写，或点右侧按钮从供应商拉取" />
+          <datalist id="sta_llm_model_datalist"></datalist>
+          <button id="sta_llm_fetch_models" class="menu_button">获取模型列表</button>
+        </div>
+        <div class="sta-field">
+          <label>温度</label>
+          <input type="range" id="sta_llm_temperature" min="0" max="2" step="0.05" />
+          <span id="sta_llm_temperature_val" class="sta-range-val"></span>
+        </div>
+        <div class="sta-field"><label>最大Token数</label><input type="number" id="sta_llm_max_tokens" class="text_pole" /></div>
+        <h4>Prompt 模板</h4>
+        <div class="sta-field">
+          <label>当前模板</label>
+          <span class="sta-prompt-template-switch">
+            <select id="sta_prompt_template_select"></select>
+            <input type="text" id="sta_prompt_template_rename_input" class="text_pole" style="display:none" />
+          </span>
+          <button id="sta_prompt_template_new" class="menu_button">新建模板</button>
+        </div>
+        <p class="sta-hint">双击上方模板名可重命名。</p>
+        <textarea id="sta_prompt_template" rows="16" class="text_pole"></textarea>
+        <div class="sta-actions-right">
+          <button id="sta_prompt_reset" class="menu_button danger">删除当前模板</button>
+        </div>
+      </div>
+
+      <!-- 豆包TTS -->
+      <div class="sta-tab-content" data-tab="doubao">
+        <div class="sta-field"><label>App ID</label><input type="text" id="sta_doubao_app_id" class="text_pole" /></div>
+        <div class="sta-field"><label>Access Token</label><input type="text" id="sta_doubao_access_key" class="text_pole" /></div>
+        <div class="sta-list-header">
+          <h4>音色列表</h4>
+          <div class="sta-actions-right">
+            <button id="sta_doubao_export_btn" class="menu_button">导出</button>
+            <button id="sta_doubao_import_btn" class="menu_button">导入</button>
+            <input type="file" id="sta_doubao_import_file" accept=".json" style="display:none" />
+            <button id="sta_doubao_add_speaker" class="menu_button">新建音色</button>
+          </div>
+        </div>
+        <div class="sta-add-row">
+          <input type="text" id="sta_doubao_new_name" placeholder="音色名称" class="text_pole" />
+          <input type="text" id="sta_doubao_new_speaker_id" placeholder="speaker_id" class="text_pole" />
+          <input type="text" id="sta_doubao_new_resource_id" placeholder="resource_id（如 seed-tts-2.0）" class="text_pole" />
+        </div>
+        <div id="sta_doubao_speakers_list"></div>
+      </div>
+
+      <!-- MiMo TTS -->
+      <div class="sta-tab-content" data-tab="mimo">
+        <div class="sta-field"><label>API Key（支持多行/逗号分隔多个key轮询）</label><textarea id="sta_mimo_apikey" rows="2" class="text_pole"></textarea></div>
+        <div class="sta-field" style="display:none;"><label>Base URL</label><input type="text" id="sta_mimo_baseurl" class="text_pole" /></div>
+        <h4>预置音色（选好后点收藏，加入"我的音色"）</h4>
+        <div class="sta-add-row">
+          <select id="sta_mimo_preset_select" class="text_pole"></select>
+          <button id="sta_mimo_preset_add" class="menu_button" style="flex:0 0 auto;">收藏</button>
+        </div>
+
+        <h4>音色复刻（上传一段参考音频，生成专属音色）</h4>
+        <p class="sta-hint">目前仅支持 mp3 / wav 格式的音频样本，建议 5~10 秒清晰人声，不超过 10 MB</p>
+        <div class="sta-field">
+          <label>参考音频</label>
+          <button id="sta_mimo_clone_file_btn" class="menu_button">选择音频文件</button>
+          <span id="sta_mimo_clone_filename" class="sta-hint" style="margin:0;">未选择文件</span>
+          <input type="file" id="sta_mimo_clone_file" accept="audio/*" style="display:none;" />
+        </div>
+        <div id="sta_mimo_clone_preview_wrap" style="display:none; margin: 4px 0 8px 148px;">
+          <audio id="sta_mimo_clone_preview" controls style="height:32px; max-width:320px;"></audio>
+        </div>
+        <div class="sta-field">
+          <label>音色昵称</label>
+          <input type="text" id="sta_mimo_clone_nickname" placeholder="例如：林黛玉音色" class="text_pole" style="flex:1; width:auto; min-width:120px;" />
+          <button id="sta_mimo_clone_add" class="menu_button" style="flex:0 0 auto;">添加复刻音色</button>
+        </div>
+
+        <h4>我的音色</h4>
+        <div id="sta_mimo_my_voices_list"></div>
+      </div>
+
+      <!-- Edge-TTS -->
+      <div class="sta-tab-content" data-tab="edge">
+        <p class="sta-hint">参数填写示例：（语速）+10%　（音调）-5Hz 或 -3%　（音量）+10%。留空则为默认值。</p>
+        <div class="sta-list-header">
+          <h4>音色列表</h4>
+          <div class="sta-actions-right">
+            <button id="sta_edge_add_speaker" class="menu_button">新建音色</button>
+          </div>
+        </div>
+        <div class="sta-add-row">
+          <select id="sta_edge_new_voice" class="text_pole"></select>
+          <input type="text" id="sta_edge_new_rate" placeholder="语速，如 +10%" class="text_pole" />
+          <input type="text" id="sta_edge_new_pitch" placeholder="音调，如 -5Hz" class="text_pole" />
+          <input type="text" id="sta_edge_new_volume" placeholder="音量，如 +0%" class="text_pole" />
+        </div>
+        <div id="sta_edge_speakers_list"></div>
+      </div>
+
+      <!-- 角色音色绑定 -->
+      <div class="sta-tab-content" data-tab="voices">
+        <p class="sta-hint">为角色卡绑定固定音色。角色名后可用逗号追加该角色的其他称呼/别名，如 林黛玉,黛玉,颦儿；说话人只要匹配其中任意一个名字即可命中。</p>
+        <div class="sta-actions-right">
+          <button id="sta_char_new" class="menu_button">+ 新建角色</button>
+          <button id="sta_char_save_all" class="menu_button">保存</button>
+        </div>
+        <div id="sta_char_bindings_list"></div>
+      </div>
+
+      <!-- NPC与兜底音色 -->
+      <div class="sta-tab-content" data-tab="npc">
+        <p class="sta-hint">未绑定角色卡的NPC，按年龄/性别归入以下六类，每类固定一个音色；旁白单独设置。每行前面的勾选框可单独关闭该类别，关闭后遇到这类台词会直接跳过、不生成语音。</p>
+        <div id="sta_fixed_voices_list"></div>
+        <h4>已记忆的NPC音色映射</h4>
+        <div id="sta_npc_map_list"></div>
+      </div>
+
+      <!-- 素材库 -->
+      <div class="sta-tab-content" data-tab="assets">
+        <p class="sta-hint">每行一条：key=url=上传者=音量（0-100）。key就是给LLM引用的素材名。</p>
+        <div class="sta-actions-right">
+          <button id="sta_assets_export_btn" class="menu_button">导出</button>
+          <button id="sta_assets_import_btn" class="menu_button">导入</button>
+          <input type="file" id="sta_assets_import_file" accept=".json" style="display:none" />
+          <button id="sta_audio_assets_save" class="menu_button">保存素材库</button>
+        </div>
+        <textarea id="sta_audio_assets_content" rows="10" class="text_pole"></textarea>
+      </div>
+
+      <!-- 缓存管理 -->
+      <div class="sta-tab-content" data-tab="cache">
+        <h4>语音缓存</h4>
+        <p class="sta-hint">每回合对话生成的语音，一次性缓存。</p>
+        <div class="sta-actions-right">
+          <button id="sta_cache_refresh" class="menu_button">刷新列表</button>
+          <button id="sta_cache_clear_all" class="menu_button danger">清空全部语音缓存</button>
+        </div>
+        <div id="sta_voice_cache_list"></div>
+
+        <h4>素材库缓存</h4>
+        <p class="sta-hint">素材库（BGM/环境音/音效）会被频繁重复调用，建议先下载到本地；播放时会优先读取本地缓存。清空全部语音缓存不会影响这里。</p>
+        <div class="sta-actions-right">
+          <button id="sta_asset_cache_download" class="menu_button">下载素材库内容</button>
+          <button id="sta_asset_cache_refresh" class="menu_button">刷新列表</button>
+          <button id="sta_asset_cache_clear" class="menu_button danger">清空素材库缓存</button>
+        </div>
+        <div id="sta_asset_cache_list"></div>
+      </div>
+
+      <!-- 运行日志 -->
+      <div class="sta-tab-content" data-tab="runlog">
+        <h4>返回的编排内容</h4>
+        <p class="sta-hint">编排LLM最近一次返回、并转换成易读格式的结构化方案。每次处理新回合会覆盖更新，只保留最新一份，仅存于内存中，不可编辑。</p>
+        <div id="sta_runlog_last_plan"></div>
+
+        <h4>处理日志</h4>
+        <p class="sta-hint">记录每回合处理时"跳过/失败"的情况（如素材未找到、说话人未分配音色、语音合成失败），仅保存在内存中，最多200条，刷新页面后清空。</p>
+        <div class="sta-actions-right">
+          <button id="sta_runlog_refresh" class="menu_button">刷新</button>
+          <button id="sta_runlog_clear" class="menu_button danger">清空日志</button>
+        </div>
+        <div id="sta_runlog_list"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
